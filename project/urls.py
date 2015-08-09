@@ -8,11 +8,17 @@ from django.conf.urls.static import static
 from django.contrib import admin
 
 import spirit.urls
+import spirit.topic
 
 # Override admin login for security purposes
 from django.contrib.auth.decorators import login_required
 admin.site.login = login_required(admin.site.login)
+spirit.topic.views.index_active = login_required(
+    spirit.topic.views.index_active)
 
+spirit.topic.views.index_active = 'haha'
+spirit.topic.views.detail = 'hihi'
+print spirit.topic.views.index_active
 
 urlpatterns = [
     # Examples:

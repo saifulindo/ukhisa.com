@@ -90,6 +90,7 @@ def update(request, pk):
     return render(request, 'spirit/topic/update.html', context)
 
 
+@login_required
 def detail(request, pk, slug):
     topic = Topic.objects.get_public_or_404(pk, request.user)
 
@@ -117,6 +118,7 @@ def detail(request, pk, slug):
     return render(request, 'spirit/topic/detail.html', context)
 
 
+@login_required
 def index_active(request):
     categories = Category.objects\
         .visible()\

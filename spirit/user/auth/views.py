@@ -61,8 +61,8 @@ def register(request):
 
         if not request.is_limited and form.is_valid():
             user = form.save()
-            send_activation_email(request, user)
-            messages.info(request, _("We have sent you an email so you can activate your account!"))
+            # send_activation_email(request, user)
+            messages.info(request, _("Please wait until admin activate your account!"))
 
             # TODO: email-less activation
             # if not settings.REGISTER_EMAIL_ACTIVATION_REQUIRED:
